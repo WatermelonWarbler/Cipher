@@ -3,9 +3,16 @@ def main():
     out=[]
     shift=input("enter number\n")
     for c in word:
-        o=chr(ord(c)+int(shift))
+        try:
+            o=chr(ord(c)+int(shift))
+        except ValueError:
+            print ("Invalid Input")
+            exit(1)
         out.append(o)
     print(''.join(out))
-    
+
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        print("Goodbye!")
